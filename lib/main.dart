@@ -1,4 +1,6 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:plant_app/test_data.dart';
 import 'package:plant_app/tree_seedlings_app.dart';
 
 void main() {
@@ -26,22 +28,48 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _bottomNavIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70,
         backgroundColor: Colors.green.shade50,
         elevation: 0,
-        title: Text(
-          "SMACHS Foundation",
-          style: TextStyle(
-            color: Colors.green.shade900,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+        leading: Icon(
+          Icons.menu_outlined,
+          color: Colors.green.shade900,
+          size: 30,
+        ),
+        title: Image.asset(
+          "assets/images/logo.png",
+          fit: BoxFit.contain,
         ),
       ),
-      body: Center(child: TreeSeedlingApp()),
+      body: const Center(child: TreeSeedlingApp()),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green.shade900,
+        hoverColor: Colors.green.shade50,
+        child: const Icon(
+          Icons.shopping_cart,
+          color: Colors.white,
+        ),
+        onPressed: () {},
+        //params
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        icons: iconList,
+        activeIndex: _bottomNavIndex,
+        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.verySmoothEdge,
+        leftCornerRadius: 0,
+        rightCornerRadius: 0,
+        blurEffect: true,
+        onTap: (index) => setState(() => _bottomNavIndex = index),
+        //other params
+      ),
     );
   }
 }

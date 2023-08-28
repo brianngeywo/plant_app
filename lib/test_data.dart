@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class TreeModel {
   String name;
   String scientificName;
@@ -26,6 +28,19 @@ List<TreeModel> treesTypes = [
 
 List<String> treeImages = [
   "assets/images/palm-tree-house-plant.png",
-  "assets/images/monstera-deliciosa-plant.png",
+  "assets/images/monstera-deliciosa-plant-2.png",
   "assets/images/fiddle-leaf-fig-plant.png",
+];
+
+List<IconData> iconList = [
+  Icons.home,
+  Icons.dashboard,
+  Icons.settings,
+  Icons.person,
+];
+
+List<String> events = [
+  "Youth2Farm",
+  "Climate Action",
+  "Bee Keeping",
 ];
