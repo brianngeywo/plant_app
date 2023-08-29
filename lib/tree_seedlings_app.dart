@@ -34,7 +34,8 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
-                      'Getting Youth to Farm, \nFor a better future',
+                      'Getting Youth to Farm.'
+                          ' \nFor a better future',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -77,7 +78,7 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Shop now',
+                            'Shop Now',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -94,6 +95,7 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                         ],
                       ),
                     ),
+                    // Display tree seedlings here
                     const SizedBox(height: 20),
                     SizedBox(
                       height: 310,
