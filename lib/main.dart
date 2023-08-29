@@ -34,21 +34,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   toolbarHeight: 70,
-      //   backgroundColor: Colors.green.shade50,
-      //   elevation: 0,
-      //   leading: Icon(
-      //     Icons.menu_outlined,
-      //     color: Colors.green.shade900,
-      //     size: 30,
-      //   ),
-      //   title: Image.asset(
-      //     "assets/images/logo.png",
-      //     fit: BoxFit.contain,
-      //   ),
-      // ),
-      body: const Center(child: BuySeedlingPage()),
+      appBar: AppBar(
+        toolbarHeight: 70,
+        backgroundColor: Colors.green.shade50,
+        elevation: 0,
+        leading: Icon(
+          Icons.menu_outlined,
+          color: Colors.green.shade900,
+          size: 30,
+        ),
+        title: Image.asset(
+          "assets/images/logo.png",
+          fit: BoxFit.contain,
+        ),
+      ),
+      body: const Center(child: TreeSeedlingApp()),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green.shade900,
         hoverColor: Colors.green.shade50,

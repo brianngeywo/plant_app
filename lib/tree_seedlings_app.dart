@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:plant_app/buy_seedling_page.dart';
 import 'package:plant_app/test_data.dart';
 
 class TreeSeedlingApp extends StatefulWidget {
@@ -35,7 +36,7 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                   children: [
                     const Text(
                       'Getting Youth to Farm.'
-                          ' \nFor a better future',
+                      ' \nFor a better future',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -104,7 +105,16 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                         scrollDirection: Axis.horizontal,
                         itemCount: treeImages.length,
                         itemBuilder: (context, index) {
-                          return plantCard(image: treeImages[index]);
+                          return MaterialButton(
+                            onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => BuySeedlingPage(
+                                  treeImage: treeImages[index],
+                                ),
+                              ),
+                            ),
+                            child: plantCard(image: treeImages[index]),
+                          );
                         },
                       ),
                     ),
@@ -142,7 +152,8 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                         scrollDirection: Axis.horizontal,
                         itemCount: events.length,
                         itemBuilder: (context, index) {
-                          return eventCard(projectName: events[index], date: 'Sep ${index +1}, 2023');
+                          return eventCard(
+                              projectName: events[index], date: 'Sep ${index + 1}, 2023');
                         },
                       ),
                     ),
@@ -172,8 +183,7 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                                   elevation: 5,
                                   backgroundColor: Colors.white,
                                   label: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(horizontal: 8.0),
+                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                     child: Text(
                                       e.name,
                                       style: const TextStyle(
@@ -284,59 +294,62 @@ Widget plantCard({required String image}) {
         Container(height: 200),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Card(
-            elevation: 7,
-            margin: const EdgeInsets.only(top: 140),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 40),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      "Lodokojek Farm",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 7),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: Text("Plant name"),
-                  ),
-                  const Spacer(),
-                  ListTile(
-                    title: Text(
-                      "KES 1,000",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green.shade900,
-                      ),
-                    ),
-                    trailing: TextButton(
-                      style: TextButton.styleFrom(
-                        elevation: 7,
-                        backgroundColor: Colors.green.shade900,
-                        primary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+          child: Center(
+            // tag: image,
+            child: Card(
+              elevation: 7,
+              margin: const EdgeInsets.only(top: 140),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 40),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        "Lodokojek Farm",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54,
                         ),
                       ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Buy",
-                      ),
                     ),
-                  )
-                ],
+                    const SizedBox(height: 7),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: Text("Plant name"),
+                    ),
+                    const Spacer(),
+                    ListTile(
+                      title: Text(
+                        "KES 1,000",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green.shade900,
+                        ),
+                      ),
+                      trailing: TextButton(
+                        style: TextButton.styleFrom(
+                          elevation: 7,
+                          backgroundColor: Colors.green.shade900,
+                          primary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Text(
+                          "Buy",
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -347,9 +360,12 @@ Widget plantCard({required String image}) {
           child: SizedBox(
             height: 220,
             // width: 70,
-            child: Image.asset(
-              image,
-              fit: BoxFit.contain,
+            child: Hero(
+              tag: image,
+              child: Image.asset(
+                image,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ),
