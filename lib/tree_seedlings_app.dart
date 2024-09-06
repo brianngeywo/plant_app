@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:plant_app/buy_seedling_page.dart';
 import 'package:plant_app/test_data.dart';
+import 'package:plant_app/trees_list.dart';
 
 class TreeSeedlingApp extends StatefulWidget {
   const TreeSeedlingApp({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green.shade50,
+      backgroundColor: Colors.green.shade100,
       body: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
@@ -86,11 +87,14 @@ class _TreeSeedlingAppState extends State<TreeSeedlingApp> {
                               color: Colors.green.shade900,
                             ),
                           ),
-                          const Text(
-                            'View all',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+                          GestureDetector(
+                            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TreesListPage(),),),
+                            child: const Text(
+                              'View all',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
                             ),
                           ),
                         ],
